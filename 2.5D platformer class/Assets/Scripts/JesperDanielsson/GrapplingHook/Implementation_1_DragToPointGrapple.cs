@@ -1,62 +1,56 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 public class Implementation_1_DragToPointGrapple : MonoBehaviour{
     [SerializeField] float grappleSpeed;
     [SerializeField] float maxGrappleDistance;
-    [SerializeField] float grappleCooldown;
     [SerializeField] LayerMask grappleLayer;
 
-    Rigidbody rigidbody;
+    new Rigidbody rigidbody;
     Transform player;
-    
-    Camera camera;
-    
-    Vector2 mousePosition;
+
     Vector2 grapplePoint;
     Vector2 grappleDistance;
 
     bool hasGrapplePoint;
+    float startTime;
 
     void Start(){
         rigidbody = GetComponent<Rigidbody>();
         player = this.transform;
-        camera = Camera.main;
     }
 
     void Update(){
         if (Input.GetKeyDown(KeyCode.Mouse0)){
             SetGrapplePoint();
         }
+        if (Input.GetKey(KeyCode.RightShift)){
+            rigidbody.useGravity = false;
+            GrappleToDestination();
+            hasGrapplePoint = false;
+        }
+
+        if (Input.GetKeyUp(KeyCode.RightShift)){
+            rigidbody.useGravity = true;
+        }
         Grapple();
-        Debug.DrawRay(player.position, grapplePoint, Color.red);
-        Debug.Log(hasGrapplePoint);
     }
 
     void Grapple(){
         if (hasGrapplePoint){
-            rigidbody.useGravity = false;
-            rigidbody.velocity = Vector3.zero;
-            GrappleToDestination();
-            hasGrapplePoint = false;
+            startTime = Time.time;
             rigidbody.useGravity = true;
-            rigidbody.velocity = Vector3.down;
         }
     }
 
     void GrappleToDestination(){
-        var currentPosition = Vector2.Lerp(player.position, grapplePoint, Time.deltaTime * grappleSpeed);
-        transform.position = currentPosition;
+        var distCovered = (Time.time - startTime) * grappleSpeed;
+        var fractalDist = distCovered / Vector2.Distance(grapplePoint, player.position);
+        transform.position = Vector2.Lerp(player.position, grapplePoint, fractalDist);
     }
 
     void SetGrapplePoint(){
-        var distanceVector = camera.ScreenToWorldPoint(Input.mousePosition) - player.position;
-        
+        var distanceVector = Input.mousePosition - player.position;
         if (Physics.Raycast(player.position, distanceVector, out var hit, maxGrappleDistance, grappleLayer)){
-            Debug.Log("raycast hit");
             if (Vector2.Distance(hit.point, player.position) <= maxGrappleDistance){
                 grapplePoint = hit.point;
                 grappleDistance = grapplePoint - (Vector2) player.position;

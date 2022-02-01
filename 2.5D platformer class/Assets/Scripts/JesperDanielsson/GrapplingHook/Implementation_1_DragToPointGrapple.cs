@@ -30,7 +30,7 @@ public class Implementation_1_DragToPointGrapple : MonoBehaviour{
             rigidbody.useGravity = false;
             GrappleToDestination();
             hasGrapplePoint = false;
-            Destroy(grapplePointVisuals, 2);
+            Destroy(grapplePointVisuals, 2); // corroutine for spawn and destroy?
         }
 
         if (Input.GetKeyUp(KeyCode.RightShift)){

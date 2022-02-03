@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class ThrowHook : MonoBehaviour{
@@ -10,13 +6,28 @@ public class ThrowHook : MonoBehaviour{
     [SerializeField] GameObject hookPrefab;
 
     GameObject curHook;
+    Vector3 cameraPoint;
+
+    bool ropeActive;
     
     void Update(){
         if (Input.GetKeyDown(KeyCode.Mouse0)){
-            var destination = Camera.main.WorldToScreenPoint(Input.mousePosition);
+            if (!ropeActive){
+                cameraPoint.x = Camera.main.ScreenToWorldPoint(Input.mousePosition).x;
+                cameraPoint.y = Camera.main.ScreenToWorldPoint(Input.mousePosition).y;
+                cameraPoint.z = this.transform.position.z;
 
-            curHook = Instantiate(hookPrefab, transform.position, Quaternion.identity);
-            curHook.GetComponent<RopeController>().Destination = destination;
+                var destination = cameraPoint;
+
+                curHook = Instantiate(hookPrefab, transform.position, Quaternion.identity);
+                curHook.GetComponent<RopeController>().Destination = destination;
+                ropeActive = true;
+            }
+            else{
+                Destroy(curHook);
+                ropeActive = false;
+            }
         }
+        Debug.DrawRay(transform.position,cameraPoint , Color.magenta);
     }
 }

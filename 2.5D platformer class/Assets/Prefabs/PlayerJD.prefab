@@ -25,8 +25,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: -0.17223129, y: -0.007087362, z: 0.0012395831, w: -0.9850303}
-  m_LocalPosition: {x: -0.47069073, y: 3.531138, z: -8.613397}
+  m_LocalRotation: {x: -0.13128975, y: -0.31444523, z: 0.043959584, w: -0.93912446}
+  m_LocalPosition: {x: -6.539236, y: 12.629213, z: -20.145214}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -100,9 +100,9 @@ GameObject:
   - component: {fileID: 4850967546773524292}
   - component: {fileID: 6850479177862401072}
   - component: {fileID: 138981863248270222}
-  - component: {fileID: 7307959976907976248}
+  - component: {fileID: 4694096492474988749}
   m_Layer: 0
-  m_Name: Player
+  m_Name: PlayerJD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -242,7 +242,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 515488369229042149}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b3f08bd2f2a2b6a42aeb3e32b78dc122, type: 3}
   m_Name: 
@@ -253,7 +253,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   grapplePointPrefab: {fileID: 378979633531466258, guid: c71e1d2d148459a49b016d9eeff932fb, type: 3}
---- !u!114 &7307959976907976248
+--- !u!114 &4694096492474988749
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -265,3 +265,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c90c3327cff104042b79431cda984f75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxDistance: 10
+  swingSpeed: 1
+  hookPrefab: {fileID: 6429797520672095259, guid: a11ff254fb872694ab08fc8ce32a9ff3, type: 3}

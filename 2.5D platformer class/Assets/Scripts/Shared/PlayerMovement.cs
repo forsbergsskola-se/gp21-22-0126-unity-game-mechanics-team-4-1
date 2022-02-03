@@ -16,7 +16,15 @@ public class PlayerMovement : MonoBehaviour{
    }
 
    void Update(){
-      _myRigidbody.velocity = new Vector3(Input.GetAxis("Horizontal") * moveSpeed, _myRigidbody.velocity.y, 0);
+      // _myRigidbody.velocity = new Vector3(Input.GetAxis("Horizontal") * moveSpeed, _myRigidbody.velocity.y, 0);
+      // var movePosistion = new Vector3(Time.deltaTime * Input.GetAxis("Horizontal") + moveSpeed, 0f, 0f);
+      if (Input.GetAxis("Horizontal") > 0){
+         transform.position += Vector3.right * Time.deltaTime * moveSpeed;
+      }
+      if (Input.GetAxis("Horizontal") < 0){
+         transform.position += Vector3.left * Time.deltaTime * moveSpeed;
+      }
+      
 
       if (Input.GetKeyDown(KeyCode.Space) && _groundCheck.IsGrounded){
          _myRigidbody.AddForce(Vector3.up * jumpForce);

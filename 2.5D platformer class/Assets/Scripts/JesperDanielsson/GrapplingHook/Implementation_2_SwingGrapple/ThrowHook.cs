@@ -2,23 +2,24 @@ using UnityEngine;
 
 public class ThrowHook : MonoBehaviour{
     [SerializeField] float maxDistance = 10f;
-    [SerializeField] float swingSpeed = 1f;
     [SerializeField] GameObject hookPrefab;
+    [SerializeField] LayerMask hookLayer;
 
     GameObject curHook;
     Vector3 cameraPoint;
 
     bool ropeActive;
-    
+    Ray ray;
+
     void Update(){
         if (Input.GetKeyDown(KeyCode.Mouse0)){
             if (!ropeActive){
-                cameraPoint.x = Camera.main.ScreenToWorldPoint(Input.mousePosition).x;
-                cameraPoint.y = Camera.main.ScreenToWorldPoint(Input.mousePosition).y;
-                cameraPoint.z = this.transform.position.z;
+                ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
+                if (Physics.Raycast(ray.origin,ray.direction*100, out var hit,100, hookLayer)){
+                    cameraPoint = hit.point;
+                }
                 var destination = cameraPoint;
-
                 curHook = Instantiate(hookPrefab, transform.position, Quaternion.identity);
                 curHook.GetComponent<RopeController>().Destination = destination;
                 ropeActive = true;
@@ -28,6 +29,5 @@ public class ThrowHook : MonoBehaviour{
                 ropeActive = false;
             }
         }
-        Debug.DrawRay(transform.position,cameraPoint , Color.magenta);
     }
 }

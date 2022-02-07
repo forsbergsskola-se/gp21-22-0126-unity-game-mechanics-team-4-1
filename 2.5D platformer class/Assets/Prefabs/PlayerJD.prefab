@@ -266,5 +266,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxDistance: 10
-  swingSpeed: 1
   hookPrefab: {fileID: 6429797520672095259, guid: a11ff254fb872694ab08fc8ce32a9ff3, type: 3}
+  hookLayer:
+    serializedVersion: 2
+    m_Bits: 1

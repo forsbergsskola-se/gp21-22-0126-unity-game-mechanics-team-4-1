@@ -1,18 +1,14 @@
+using System.Collections;
 using UnityEngine;
 
 public class Implementation_1_DragToPointGrapple : MonoBehaviour{
     [SerializeField] float grappleSpeed;
-    [SerializeField] float maxGrappleDistance;
     [SerializeField] LayerMask grappleLayer;
     [SerializeField] GameObject grapplePointPrefab;
 
     new Rigidbody rigidbody;
     Transform player;
-    GameObject grapplePointVisuals;
-
-    Vector2 grapplePoint;
-    Vector2 grappleDistance;
-    Vector3 offset = new Vector3(0, 0, -3);
+    Vector3 grapplePoint;
 
     bool hasGrapplePoint;
     float startTime;
@@ -30,7 +26,6 @@ public class Implementation_1_DragToPointGrapple : MonoBehaviour{
             rigidbody.useGravity = false;
             GrappleToDestination();
             hasGrapplePoint = false;
-            Destroy(grapplePointVisuals, 2); // corroutine for spawn and destroy?
         }
 
         if (Input.GetKeyUp(KeyCode.RightShift)){
@@ -53,16 +48,16 @@ public class Implementation_1_DragToPointGrapple : MonoBehaviour{
     }
 
     void SetGrapplePoint(){
-        var distanceVector = Input.mousePosition - player.position;
-        if (Physics.Raycast(player.position, distanceVector, out var hit, maxGrappleDistance, grappleLayer)){
-            if (Vector2.Distance(hit.point, player.position) <= maxGrappleDistance){
-                grapplePoint = hit.point;
-                grappleDistance = grapplePoint - (Vector2) player.position;
-                hasGrapplePoint = true;
-                var spawnPoint = offset + (Vector3)grapplePoint;
-                grapplePointVisuals = Instantiate(grapplePointPrefab,spawnPoint,Quaternion.identity);
-            }
+        var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray.origin,ray.direction*100, out var hit,100, grappleLayer)){
+            grapplePoint = hit.point;
+            StartCoroutine(VisualizeGrapplePoint());
         }
     }
-    
+
+    IEnumerator VisualizeGrapplePoint(){
+        var grapplePointVisual =Instantiate(grapplePointPrefab, grapplePoint, Quaternion.identity);
+        yield return new WaitForSeconds(2f);
+        Destroy(grapplePointVisual);
+    }
 }

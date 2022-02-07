@@ -1,21 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class Implementation_2_Implosion : MonoBehaviour
 {
     [SerializeField] float implosionForce = 10f;
+    [SerializeField] float progressTimeChanger = 5f;
     [SerializeField] GameObject particleSystem;
     [SerializeField] GameObject mineMesh;
-    void OnTriggerEnter(Collider other){
+    IEnumerator OnTriggerEnter(Collider other){
         var targetRigidbody = other.GetComponent<Rigidbody>();
-        if (targetRigidbody == null)
-            return;
+        var progress = 0f;
+        var finalPosistion = transform.position + new Vector3(0, 5, 0);
+        var startPosition = transform.position;
         
-        var targetDirection = this.transform.position.normalized - targetRigidbody.transform.position.normalized;
-        targetRigidbody.AddForce(targetDirection * implosionForce, ForceMode.Acceleration);
-        particleSystem.SetActive(true);
-        mineMesh.SetActive(false);
-        GetComponent<Collider>().enabled = false;
+        if (targetRigidbody != null){
+            while (progress < 1f){
+                progress += Time.deltaTime / progressTimeChanger;
+                transform.position = Vector3.Lerp(startPosition, finalPosistion, progress);
+
+                var targetDirection = this.transform.position.normalized - targetRigidbody.transform.position.normalized;
+                targetRigidbody.AddForce(targetDirection * implosionForce, ForceMode.Acceleration);
+                particleSystem.SetActive(true);
+                GetComponent<Collider>().enabled = false;
+                yield return null;
+            }
+            mineMesh.SetActive(false);
+        }
     }
 }

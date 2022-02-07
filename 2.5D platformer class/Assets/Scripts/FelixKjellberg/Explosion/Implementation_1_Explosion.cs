@@ -16,7 +16,7 @@ public class Implementation_1_Explosion : MonoBehaviour{
             return;
         
         var targetDirection = targetRigidbody.transform.position.normalized - this.transform.position.normalized;
-        targetRigidbody.AddForce(targetDirection * explosionForce, ForceMode.Impulse);
+        targetRigidbody.AddForce(targetDirection * explosionForce, ForceMode.Acceleration);
         particleSystem.SetActive(true);
         mineMesh.SetActive(false);
         GetComponent<Collider>().enabled = false;

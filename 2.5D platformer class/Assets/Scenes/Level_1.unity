@@ -744,10 +744,6 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0.00043547343
       objectReference: {fileID: 0}
-    - target: {fileID: 138981863248270222, guid: 7af31e431536e0845a12453968526ecf, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 515488369229042137, guid: 7af31e431536e0845a12453968526ecf, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -796,7 +792,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerJD
       objectReference: {fileID: 0}
-    - target: {fileID: 4694096492474988749, guid: 7af31e431536e0845a12453968526ecf, type: 3}
+    - target: {fileID: 0}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}

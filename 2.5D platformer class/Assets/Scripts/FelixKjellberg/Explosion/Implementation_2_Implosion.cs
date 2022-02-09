@@ -9,6 +9,7 @@ public class Implementation_2_Implosion : MonoBehaviour
     [SerializeField] float progressTimeChanger = 5f;
     [SerializeField] GameObject particleSystem;
     [SerializeField] GameObject mineMesh;
+    [SerializeField] GameObject blackHoleMesh;
     IEnumerator OnTriggerEnter(Collider other){
         var targetRigidbody = other.GetComponent<Rigidbody>();
         var progress = 0f;
@@ -22,12 +23,13 @@ public class Implementation_2_Implosion : MonoBehaviour
 
                 var targetDirection = (this.transform.position - targetRigidbody.transform.position).normalized;
                 targetRigidbody.AddForce(targetDirection * implosionForce, ForceMode.Acceleration);
-                Debug.Log(targetDirection); //TODO:Remove used for debug
                 particleSystem.SetActive(true);
+                mineMesh.SetActive(false);
+                blackHoleMesh.SetActive(true);
                 GetComponent<Collider>().enabled = false;
                 yield return null;
             }
-            mineMesh.SetActive(false);
+            blackHoleMesh.SetActive(false);
         }
     }
 }

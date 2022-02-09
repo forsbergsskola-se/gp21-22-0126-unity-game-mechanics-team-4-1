@@ -6,6 +6,7 @@ TeamMembers:
 
 # Diffrent mechanics and how/where they are implemented
 ## GrapplingHook
+Created 2 very simple AIs. In level 1 the AI will hook the player to the ground if the player comes to close to the AI. In level two the AI will use an invisible grapple to try and chase down the player when the player grapples away.
 ### Pull towards
 The first implementation of grapplinghook is the pull towards, in level 1. With this implementation leftclick sets a grapplingpoint. Once a point has been set you can press the right shift button to drag to that position, letting go of shift then lets the normal gravity take over again.
 ### Swing rope

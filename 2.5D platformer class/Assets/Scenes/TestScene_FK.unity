@@ -515,7 +515,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1096249376203699182, guid: 2d8beddf1e51c3a4c8563d72d6b6e851, type: 3}
       propertyPath: explosionForce
-      value: 600
+      value: 3000
       objectReference: {fileID: 0}
     - target: {fileID: 1096249376203699183, guid: 2d8beddf1e51c3a4c8563d72d6b6e851, type: 3}
       propertyPath: m_RootOrder
@@ -523,11 +523,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1096249376203699183, guid: 2d8beddf1e51c3a4c8563d72d6b6e851, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -3.42
       objectReference: {fileID: 0}
     - target: {fileID: 1096249376203699183, guid: 2d8beddf1e51c3a4c8563d72d6b6e851, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.161
+      value: -0.14
       objectReference: {fileID: 0}
     - target: {fileID: 1096249376203699183, guid: 2d8beddf1e51c3a4c8563d72d6b6e851, type: 3}
       propertyPath: m_LocalPosition.z
@@ -570,14 +570,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3123367655705251244, guid: 72c71b10c1a07c34da48dc4fdb3458bb, type: 3}
-      propertyPath: implosionForce
-      value: 700
-      objectReference: {fileID: 0}
-    - target: {fileID: 4618845935901134532, guid: 72c71b10c1a07c34da48dc4fdb3458bb, type: 3}
-      propertyPath: m_Radius
-      value: 3.26
-      objectReference: {fileID: 0}
     - target: {fileID: 4618845935901134533, guid: 72c71b10c1a07c34da48dc4fdb3458bb, type: 3}
       propertyPath: m_Name
       value: ImplodingMine
@@ -588,11 +580,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4618845935901134535, guid: 72c71b10c1a07c34da48dc4fdb3458bb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.23
+      value: 3.02
       objectReference: {fileID: 0}
     - target: {fileID: 4618845935901134535, guid: 72c71b10c1a07c34da48dc4fdb3458bb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4618845935901134535, guid: 72c71b10c1a07c34da48dc4fdb3458bb, type: 3}
       propertyPath: m_LocalPosition.z

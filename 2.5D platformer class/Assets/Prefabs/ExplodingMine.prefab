@@ -5067,6 +5067,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 954ee2ea9a484d94ea1ceabb5c18e5ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionForce: 80
+  explosionForce: 2000
   particleSystem: {fileID: 1590896823}
   mineMesh: {fileID: 1096249376062812889}

@@ -20,8 +20,9 @@ public class Implementation_2_Implosion : MonoBehaviour
                 progress += Time.deltaTime / progressTimeChanger;
                 transform.position = Vector3.Lerp(startPosition, finalPosistion, progress);
 
-                var targetDirection = this.transform.position.normalized - targetRigidbody.transform.position.normalized;
+                var targetDirection = (this.transform.position - targetRigidbody.transform.position).normalized;
                 targetRigidbody.AddForce(targetDirection * implosionForce, ForceMode.Acceleration);
+                Debug.Log(targetDirection); //TODO:Remove used for debug
                 particleSystem.SetActive(true);
                 GetComponent<Collider>().enabled = false;
                 yield return null;

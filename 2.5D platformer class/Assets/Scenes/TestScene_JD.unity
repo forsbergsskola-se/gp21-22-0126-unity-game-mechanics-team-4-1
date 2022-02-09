@@ -492,6 +492,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GrapplingAILevel1
       objectReference: {fileID: 0}
+    - target: {fileID: 9123638107218627740, guid: 29a374c472acf6e4dbdf2791ed5f2def, type: 3}
+      propertyPath: hookPrefab
+      value: 
+      objectReference: {fileID: 6429797520672095259, guid: a11ff254fb872694ab08fc8ce32a9ff3, type: 3}
     - target: {fileID: 9123638107218627743, guid: 29a374c472acf6e4dbdf2791ed5f2def, type: 3}
       propertyPath: m_RootOrder
       value: 5

@@ -1,7 +1,6 @@
 using UnityEngine;
 
 public class ThrowHook : MonoBehaviour{
-    [SerializeField] float maxDistance = 10f;
     [SerializeField] GameObject hookPrefab;
     [SerializeField] LayerMask hookLayer;
 

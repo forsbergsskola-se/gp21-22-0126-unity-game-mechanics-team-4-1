@@ -12,9 +12,9 @@ The first implementation of grapplinghook is the pull towards, in level 1. With 
 The second implementation of grapplinghook is the swingrope, in level 2. With this implementation leftclick shoots out a grapplinghook that sticks to the first collider it hits. the player can then swing in the rope that has been created between the player and the hook.
 ## Explosions
 ### Exploding mine
-write shit here
+When the player gets in the colider the mine checks the direction to the player if it can find it and then adds force to the player in that direction sending the player flying.
 ### Imploding mine
-write shit here
+When the player gets in the colider the mine is set of and a black hole appears and starts rising and pulling the player in for a couple of seconds and then releases the player.
 ## Dash
 ### Speed boost
 write shit here

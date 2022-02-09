@@ -963,9 +963,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerJD
       objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7af31e431536e0845a12453968526ecf, type: 3}

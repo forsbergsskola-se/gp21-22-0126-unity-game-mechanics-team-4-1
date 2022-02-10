@@ -17,7 +17,7 @@ When the player gets in the colider the mine checks the direction to the player 
 ### Imploding mine
 When the player gets in the colider the mine is set of and a black hole appears and starts rising and pulling the player in for a couple of seconds and then releases the player.
 ## Dash
-### Speed boost
-write shit here
-### Teleport
+### Instant dash
+The first dash implementation is used by pressing the LEFT shift key. You can dash in any direction. Player needs to touch ground before using again.
+### Dash pad
 write shit here

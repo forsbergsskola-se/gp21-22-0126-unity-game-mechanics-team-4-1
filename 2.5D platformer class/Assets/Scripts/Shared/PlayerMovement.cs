@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour{
-   [SerializeField] float moveSpeed = 5f;
+   [SerializeField] public float moveSpeed = 5f;
    [SerializeField] float jumpForce = 500f;
    
    Rigidbody _myRigidbody;

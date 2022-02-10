@@ -18,6 +18,6 @@ When the player gets in the colider the mine checks the direction to the player 
 When the player gets in the colider the mine is set of and a black hole appears and starts rising and pulling the player in for a couple of seconds and then releases the player.
 ## Dash
 ### Instant dash
-The first dash implementation is used by pressing the LEFT shift key. You can dash in any direction. Player needs to touch the ground before using this implementation again.
-### Dash boost
-write shit here
+The first dash implementation is used by pressing the LEFT shift key. You can dash in ANY direction. Player needs to touch the ground before using this implementation again.
+### Dash pad
+The second dash implementation is a classic dash pad. Movement speed will recieve a boost when player steps on the pad, resets to default afterwards.

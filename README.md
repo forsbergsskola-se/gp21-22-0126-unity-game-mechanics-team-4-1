@@ -19,5 +19,5 @@ When the player gets in the colider the mine is set of and a black hole appears 
 ## Dash
 ### Instant dash
 The first dash implementation is used by pressing the LEFT shift key. You can dash in any direction. Player needs to touch the ground before using this implementation again.
-### Dash pad
+### Dash boost
 write shit here
